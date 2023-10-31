@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Tickets extends Model
 {
     use HasFactory;
+
+protected $fillable = [
+    'type',
+    'date',
+    'location',
+    ];
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class);
+    }
 }

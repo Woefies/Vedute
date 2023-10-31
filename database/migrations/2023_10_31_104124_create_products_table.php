@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('material');
             $table->string('image');
             $table->integer('price');
+            $table->foreignId('category_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

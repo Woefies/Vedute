@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Vedutes extends Model
 {
     use HasFactory;
+
+protected $fillable = [
+        'name',
+        'description',
+        'image',
+        'artist_id'
+    ];
 }
