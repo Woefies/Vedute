@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Artists;
+use App\Models\Artist;
 use Illuminate\Http\Request;
 
 class ArtistsController extends Controller
@@ -34,7 +34,7 @@ class ArtistsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Artists $artists)
+    public function show(Artist $artists)
     {
         //
     }
@@ -42,7 +42,7 @@ class ArtistsController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Artists $artists)
+    public function edit(Artist $artists)
     {
         //
     }
@@ -50,7 +50,7 @@ class ArtistsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Artists $artists)
+    public function update(Request $request, Artist $artists)
     {
         //
     }
@@ -58,7 +58,7 @@ class ArtistsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Artists $artists)
+    public function destroy(Artist $artists)
     {
         //
     }

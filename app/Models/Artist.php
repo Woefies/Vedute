@@ -5,17 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Categories extends Model
+class Artist extends Model
 {
     use HasFactory;
 
     protected $fillable = [
         'name',
-        'description'
+        'about',
+        'country'
     ];
 
-    public function products()
+    public function vedutes()
     {
-        return $this->hasMany(Products::class);
+        return $this->hasMany(Vedute::class);
     }
 }

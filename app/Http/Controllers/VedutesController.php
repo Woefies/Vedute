@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Vedutes;
+use App\Models\Vedute;
 use Illuminate\Http\Request;
 
 class VedutesController extends Controller
@@ -34,7 +34,7 @@ class VedutesController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Vedutes $vedutes)
+    public function show(Vedute $vedutes)
     {
         //
     }
@@ -42,7 +42,7 @@ class VedutesController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Vedutes $vedutes)
+    public function edit(Vedute $vedutes)
     {
         //
     }
@@ -50,7 +50,7 @@ class VedutesController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Vedutes $vedutes)
+    public function update(Request $request, Vedute $vedutes)
     {
         //
     }
@@ -58,7 +58,7 @@ class VedutesController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Vedutes $vedutes)
+    public function destroy(Vedute $vedutes)
     {
         //
     }
