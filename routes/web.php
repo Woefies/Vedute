@@ -18,6 +18,7 @@ Route::get('/', function () {
     return view('home');
 });
 
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -32,6 +33,7 @@ Route::resource('products', \App\Http\Controllers\ProductsController::class);
 Route::resource('categories', \App\Http\Controllers\CategoriesController::class);
 Route::resource('tickets', \App\Http\Controllers\TicketsController::class);
 Route::resource('vedutes', \App\Http\Controllers\VedutesController::class);
+Route::resource('artists', \App\Http\Controllers\ArtistsController::class);
 
 
 require __DIR__.'/auth.php';

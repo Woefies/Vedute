@@ -12,7 +12,7 @@ class ArtistsController extends Controller
      */
     public function index()
     {
-        //
+        
     }
 
     /**
