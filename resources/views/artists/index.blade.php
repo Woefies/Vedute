@@ -1,43 +1,70 @@
 @extends('layouts.app')
 
 @section('content')
-
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <!-- create new workout button -->
-                <a href="{{ route('artists.create') }}" class="btn btn-primary">Create Artist</a>
+    <x-guest-layout>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <!-- create new workout button -->
+                    <a href="{{ route('artists.create') }}"
+                       class="btn btn-primary inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-full hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-black-300 dark:bg-french-grey dark:hover:bg-cool-grey dark:focus:ring-black-800">Create
+                        Artist</a>
+                </div>
             </div>
         </div>
-    </div>
 
-    <!-- show all workouts -->
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                @foreach($artists as $artist)
-                    <div class="card">
-                        <div class="card-header">{{ $artist->name }}</div>
-
-                        <div class="card-body">
-                            <p>{{ $artist->about }}</p>
-                            <a href="{{ route('artists.show', $artist->id) }}" class="btn btn-primary">View</a>
-                            @auth
-                            @if(Auth::user()->id === $artist->user_id || Auth::user()-> is_admin == 1 )
-                                <!-- edit button -->
-                                <a href="{{ route('artists.edit', $artist->id) }}" class="btn btn-primary">Edit</a>
-                                <!-- delete button -->
-                                <form action="{{ route('artists.destroy', $artist->id) }}" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-danger">Delete</button>
-                                </form>
-                            @endif
-                            @endauth
+        <!-- show all workouts -->
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    @foreach($artists as $artist)
+                        <div class="card">
+                            <div
+                                class="m-2 max-w-sm bg-white border border-gray-200 shadow dark:bg-off-white dark:border-gray-700">
+                                <a href="#">
+                                    <img class="rounded-t-lg" src="/docs/images/blog/image-1.jpg" alt="Placeholder"/>
+                                </a>
+                                <div class="p-5">
+                                    <a href="#">
+                                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-black-100 dark:text-black">{{ $artist->name }}</h5>
+                                    </a>
+                                    <p class="mb-3 font-normal text-gray-700 dark:text-black">{{ $artist->about }}</p>
+                                    <a href="{{ route('artists.show', $artist->id) }}"
+                                       class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-full hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-black-300 dark:bg-french-grey dark:hover:bg-cool-grey dark:focus:ring-black-800">
+                                        Read more
+                                        <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true"
+                                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                                  stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                                        </svg>
+                                    </a>
+                                    @auth
+                                        @if(Auth::user()->id === $artist->user_id || Auth::user()-> is_admin == 1 )
+                                            <a href="{{ route('artists.edit', $artist->id) }}"
+                                               class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-full hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-black-300 dark:bg-french-grey dark:hover:bg-cool-grey dark:focus:ring-black-800">
+                                                Edit
+                                                <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true"
+                                                     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                                    <path stroke="currentColor" stroke-linecap="round"
+                                                          stroke-linejoin="round" stroke-width="2"
+                                                          d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                                                </svg>
+                                            </a>
+                                            <form action="{{ route('artists.destroy', $artist->id) }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit"
+                                                        class="btn btn-danger inline-flex items-center px-3 py-2 my-2 text-sm font-medium text-center text-white bg-blue-700 rounded-full hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-black-300 dark:bg-french-grey dark:hover:bg-cool-grey dark:focus:ring-black-800 ">
+                                                    Delete
+                                                </button>
+                                            </form>
+                                        @endif
+                                    @endauth
+                                </div>
+                            </div>
+                            @endforeach
                         </div>
-                    </div>
-                @endforeach
+                </div>
             </div>
-        </div>
-    </div>
+    </x-guest-layout>
 @endsection
