@@ -20,6 +20,10 @@
                 <input type="text" class="form-control ml-7" id="country" name="country" value="{{ old('country') }}"
                        placeholder="Enter country">
             </div>
+            <div class="form-group m-2">
+                <label for="image">Artist Image</label>
+                <input type="text" class="form-control ml-7" id="image" name="image" value="{{ old('image') }}" placeholder="Enter image url">
+            </div>
             <button type="submit" class="btn btn-primary items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-full hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-black-300 dark:bg-french-grey dark:hover:bg-cool-grey dark:focus:ring-black-800">Submit</button>
         </form>
         </div>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Artist;
 use App\Models\Vedute;
 use Illuminate\Http\Request;
 
@@ -12,15 +13,19 @@ class VedutesController extends Controller
      */
     public function index()
     {
-        //
+        return view('vedutes.index', [
+            'vedutes' => Vedute::all(),
+        ]);
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Artist $artist)
     {
-        //
+        return view('vedutes.create', [
+            'artist' => $artist,
+        ]);
     }
 
     /**
@@ -28,7 +33,21 @@ class VedutesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+            'image' => 'required',
+            'artist_id' => 'required'
+        ]);
+
+        $vedute = new Vedute();
+        $vedute->name = $request->input('name');
+        $vedute->description = $request->input('description');
+        $vedute->image = $request->input('image');
+        $vedute->artist_id = $request->input('artist_id');
+        $vedute->save();
+
+        return redirect()->route('vedutes.index');
     }
 
     /**
@@ -36,7 +55,9 @@ class VedutesController extends Controller
      */
     public function show(Vedute $vedutes)
     {
-        //
+        return view('vedutes.show', [
+            'vedute' => $vedutes,
+        ]);
     }
 
     /**
@@ -44,15 +65,28 @@ class VedutesController extends Controller
      */
     public function edit(Vedute $vedutes)
     {
-        //
+        return view('vedutes.edit', [
+            'vedute' => $vedutes,
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Vedute $vedutes)
+    public function update(Request $request, Vedute $vedute)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+            'image' => 'required',
+            'artist_id' => 'required'
+        ]);
+
+        $vedute = Vedute::find($vedute->id);
+        $vedute->update($request->all());
+
+        return redirect()->route('vedutes.show', $vedute);
+
     }
 
     /**
@@ -60,6 +94,7 @@ class VedutesController extends Controller
      */
     public function destroy(Vedute $vedutes)
     {
-        //
+        $vedutes->delete();
+        return redirect()->route('vedutes.index');
     }
 }

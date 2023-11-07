@@ -6,6 +6,8 @@
     <p>{{ $artist->about }}</p>
         <br>
     <p>{{ $artist->country }}</p>
+
+    <img src="{{ $artist->image }}" alt="{{ $artist->name }}" class="w-1/4">
     <a href="{{ route('artists.index') }}" class="btn btn-primary items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-full hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-black-300 dark:bg-french-grey dark:hover:bg-cool-grey dark:focus:ring-black-800">Back</a>
     @auth
     @if(Auth::user()->id === $artist->user_id || Auth::user()-> is_admin == 1 )

@@ -43,13 +43,15 @@ class ArtistsController extends Controller
         $request->validate([
             'name' => 'required',
             'about' => 'required',
-            'country' => 'required'
+            'country' => 'required',
+            'image' => 'required'
         ]);
 
         $artist = new Artist();
         $artist->name = $request->input('name');
         $artist->about = $request->input('about');
         $artist->country = $request->input('country');
+        $artist->image = $request->input('image');
         $artist->save();
 
         return redirect()->route('artists.index');
@@ -84,7 +86,8 @@ class ArtistsController extends Controller
         $request->validate([
             'name' => 'required',
             'about' => 'required',
-            'country' => 'required'
+            'country' => 'required',
+            'image' => 'required'
         ]);
 
         $artist = Artist::find($artist->id);

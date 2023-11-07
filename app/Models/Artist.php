@@ -12,10 +12,11 @@ class Artist extends Model
     protected $fillable = [
         'name',
         'about',
-        'country'
+        'country',
+        'image'
     ];
 
-    public function vedutes()
+    public function vedute()
     {
         return $this->hasMany(Vedute::class);
     }
