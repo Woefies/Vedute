@@ -36,4 +36,4 @@ Route::resource('vedutes', \App\Http\Controllers\VedutesController::class);
 Route::resource('artists', \App\Http\Controllers\ArtistsController::class);
 
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
