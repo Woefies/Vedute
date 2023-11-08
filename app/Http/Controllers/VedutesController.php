@@ -8,6 +8,12 @@ use Illuminate\Http\Request;
 
 class VedutesController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth')->except('index', 'show');
+    }
+
     /**
      * Display a listing of the resource.
      */
@@ -21,10 +27,11 @@ class VedutesController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create(Artist $artist)
+    public function create()
     {
         return view('vedutes.create', [
-            'artist' => $artist,
+            'vedutes' => new Vedute(),
+            'artists' => Artist::all()
         ]);
     }
 
@@ -37,6 +44,7 @@ class VedutesController extends Controller
             'name' => 'required',
             'description' => 'required',
             'image' => 'required',
+            'date' => 'required',
             'artist_id' => 'required'
         ]);
 
@@ -44,6 +52,7 @@ class VedutesController extends Controller
         $vedute->name = $request->input('name');
         $vedute->description = $request->input('description');
         $vedute->image = $request->input('image');
+        $vedute->date = $request->input('date');
         $vedute->artist_id = $request->input('artist_id');
         $vedute->save();
 
@@ -57,6 +66,7 @@ class VedutesController extends Controller
     {
         return view('vedutes.show', [
             'vedute' => $vedutes,
+            'artist' => $vedutes->artist,
         ]);
     }
 

@@ -13,6 +13,7 @@ protected $fillable = [
         'name',
         'description',
         'image',
+        'date',
         'artist_id'
     ];
 
