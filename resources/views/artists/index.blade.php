@@ -20,9 +20,9 @@
                     @foreach($artists as $artist)
                         <div class="card">
                             <div
-                                class="m-2 max-w-sm bg-white border border-gray-200 shadow dark:bg-off-white dark:border-gray-700">
+                                class="m-2 max-w-sm bg-white border border-gray-200 shadow dark:bg-off-white dark:border-gray-700 align-middle">
                                 <a href="#">
-                                    <img class="rounded-t-lg" src="/docs/images/blog/image-1.jpg" alt="Placeholder"/>
+                                    <img class="align-middle" src="{{ $artist->image }}" alt="Placeholder"/>
                                 </a>
                                 <div class="p-5">
                                     <a href="#">
