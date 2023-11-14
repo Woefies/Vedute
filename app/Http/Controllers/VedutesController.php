@@ -62,11 +62,11 @@ class VedutesController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Vedute $vedutes)
+    public function show(Vedute $vedute , Artist $artist)
     {
         return view('vedutes.show', [
-            'vedute' => $vedutes,
-            'artist' => $vedutes->artist,
+            'vedute' => $vedute,
+            'artist' => $artist,
         ]);
     }
 

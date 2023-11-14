@@ -8,9 +8,22 @@
                 <h1>{{ $vedute->name }}</h1>
                 <p>{{ $vedute->description }}</p>
                 <p>{{ $vedute->date }}</p>
-                <p>{{ $vedute->artist->name }}</p>
+                <p>{{ $artist->name }}</p>
                 <img src="{{ $vedute->image }}" alt="{{ $vedute->name }}">
             </div>
+            @auth
+                @if(Auth::user()->id === $vedute->user_id || Auth::user()-> is_admin == 1 )
+                    <!-- edit button -->
+                    <a href="{{ route('vedutes.edit', $vedute->id) }}" class="btn btn-primary">Edit</a>
+
+                    <!-- delete button -->
+                    <form action="{{ route('vedutes.destroy', $vedute->id) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                @endif
+            @endauth
         </div>
     </div>
 </x-guest-layout>
