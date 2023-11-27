@@ -34,6 +34,7 @@ Route::resource('categories', \App\Http\Controllers\CategoriesController::class)
 Route::resource('tickets', \App\Http\Controllers\TicketsController::class);
 Route::resource('vedutes', \App\Http\Controllers\VedutesController::class);
 Route::resource('artists', \App\Http\Controllers\ArtistsController::class);
+//Route::get('/artists', [\App\Http\Controllers\ArtistsController::class, 'index'])->name('artists.index');
 
 
 require __DIR__ . '/auth.php';

@@ -22,7 +22,7 @@
                 </a>
             </div>
 
-            <div class="w-[700px] h-auto mt-6 px-6 py-4 bg-white dark:bg-gray-100 overflow-hidden outline outline-1 text-center">
+            <div class="max-w-xl h-auto mt-6 px-6 py-4 bg-white dark:bg-gray-100 overflow-hidden outline outline-1 text-center">
                 {{ $slot }}
             </div>
         </div>
