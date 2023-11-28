@@ -2,17 +2,27 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
 class ProductsController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth')->except(['index', 'show']);
+
+    }
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        return view('products.index', [
+            'products' => Product::all(),
+        ]);
     }
 
     /**
@@ -20,7 +30,11 @@ class ProductsController extends Controller
      */
     public function create()
     {
-        //
+        return view('products.create', [
+            'products' => new Product(),
+                'categories' => Category::all()
+        ]
+    );
     }
 
     /**
@@ -28,23 +42,37 @@ class ProductsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'description' => 'nullable',
+            'price' => 'required',
+            'category_id' => 'required'
+        ]);
+
+        $product = new Product();
+        $product->name = $request->input('name');
+        $product->description = $request->input('description', '');
+        $product->price = $request->input('price');
+
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Product $products)
+    public function show(Product $product, Category $category)
     {
-        //
+        return view('products.show', [
+            'product' => $product,
+            'category' => $category,
+        ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Product $products)
+    public function edit(Product $product)
     {
-        //
+
     }
 
     /**

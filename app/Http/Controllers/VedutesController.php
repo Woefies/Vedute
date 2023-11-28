@@ -73,11 +73,17 @@ class VedutesController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Vedute $vedutes)
+    public function edit($id)
     {
-        return view('vedutes.edit', [
-            'vedute' => $vedutes,
-        ]);
+
+        // Fetch the Vedute record
+        $vedute = Vedute::findOrFail($id);
+
+        // Fetch all available artists
+        $artists = Artist::all();
+
+        // Pass data to the view for editing
+        return view('vedutes.edit', compact('vedute', 'artists'));
     }
 
     /**
