@@ -16,11 +16,11 @@
         <!-- show all workouts -->
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-md-8">
+                <div class="row-md-8">
                     @foreach($artists as $artist)
-                        <div class="card">
+                        <div class="row-auto">
                             <div
-                                class="m-2 max-w-sm bg-white border border-gray-200 shadow dark:bg-off-white dark:border-gray-700 align-middle">
+                                class="m-2 max-w-sm bg-white border border-gray-200 shadow dark:bg-off-white dark:border-gray-700">
                                 <a href="#">
                                     <img class="align-middle" src="{{ $artist->image }}" alt="Placeholder"/>
                                 </a>
@@ -66,5 +66,6 @@
                         </div>
                 </div>
             </div>
+        </div>
     </x-guest-layout>
 @endsection
