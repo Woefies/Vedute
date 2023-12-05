@@ -46,13 +46,21 @@ class ProductsController extends Controller
             'name' => 'required',
             'description' => 'nullable',
             'price' => 'required',
+            'material' => 'nullable',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'category_id' => 'required'
         ]);
 
         $product = new Product();
         $product->name = $request->input('name');
         $product->description = $request->input('description', '');
+        $product->material = $request->input('material', '');
         $product->price = $request->input('price');
+        $product->image = $request->input('image', '');
+        $product->category_id = $request->input('category_id');
+        $product->save();
+
+        return redirect()->route('products.index');
 
     }
 
@@ -70,17 +78,32 @@ class ProductsController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Product $product)
+    public function edit($id)
     {
+        $product = Product::findOrFail($id);
 
+        $categories = Category::all();
+
+        return view('products.edit', compact( 'product', 'categories'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Product $products)
+    public function update(Request $request, Product $product)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'description' => 'nullable',
+            'price' => 'required',
+            'category_id' => 'required'
+        ]);
+
+        $product = Product::find($product->id);
+        $product->update($request->all());
+
+        return redirect()->route('products.show', $product->id);
+
     }
 
     /**
@@ -88,6 +111,8 @@ class ProductsController extends Controller
      */
     public function destroy(Product $products)
     {
-        //
+        $products->delete();
+        return redirect()->route('products.index');
+
     }
 }
