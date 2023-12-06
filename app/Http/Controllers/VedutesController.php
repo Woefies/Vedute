@@ -89,7 +89,7 @@ class VedutesController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Vedute $vedute)
+    public function update(Request $request, $id)
     {
         $request->validate([
             'name' => 'required',
@@ -98,8 +98,13 @@ class VedutesController extends Controller
             'artist_id' => 'required'
         ]);
 
-        $vedute = Vedute::find($vedute->id);
-        $vedute->update($request->all());
+        $vedute = Vedute::findOrFail($id);
+        $vedute->update([
+            'name' => $request->name,
+            'description' => $request->description,
+            'image' => $request->image,
+            'artist_id' => $request->artist_id
+        ]);
 
         return redirect()->route('vedutes.show', $vedute);
 
@@ -108,8 +113,9 @@ class VedutesController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Vedute $vedutes)
+    public function destroy($id)
     {
+        $vedutes = Vedute::findOrFail($id);
         $vedutes->delete();
         return redirect()->route('vedutes.index');
     }

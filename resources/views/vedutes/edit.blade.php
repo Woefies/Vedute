@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <form action="{{route('vedutes.update', ['vedute' => $vedute->id])}}" method="POST">
+    <form action="{{ route('vedutes.update', $vedute->id) }}" method="POST">
         @csrf
         @method('PUT')
         <div class="form-group">
@@ -12,6 +12,10 @@
         <div class="form-group">
             <label for="description">Vedute Description</label>
             <textarea name="description"  class="form-control">{{ $vedute->description }}</textarea>
+        </div>
+        <div class="form-group">
+            <label for="image">Vedute image</label>
+            <input type="text" name="image" value="{{ $vedute->image }}" class="form-control">
         </div>
         <div class="form-group">
             <label for="artist">Artist</label>

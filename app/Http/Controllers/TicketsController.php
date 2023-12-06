@@ -19,7 +19,11 @@ class TicketsController extends Controller
      */
     public function index()
     {
-        //
+        // get tickets from user
+        $tickets = auth()->user()->tickets;
+
+        // return view with tickets
+        return view('tickets.index', compact('tickets'));
     }
 
     /**
@@ -27,7 +31,8 @@ class TicketsController extends Controller
      */
     public function create()
     {
-        //
+
+        return view('tickets.create');
     }
 
     /**
@@ -35,23 +40,40 @@ class TicketsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $request->validate([
+            'type' => 'required',
+            'date' => 'required',
+            'location' => 'required',
+        ]);
+
+        $ticket = Ticket::create([
+            'type' => $request->type,
+            'date' => $request->date,
+            'location' => $request->location,
+        ]);
+
+        // attach ticket to user
+        auth()->user()->tickets()->attach($ticket->id);
+
+        // redirect to tickets index
+        return redirect()->route('tickets.index');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Ticket $tickets)
+    public function show(Ticket $ticket)
     {
-        //
+        return view('tickets.show', compact('ticket'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Ticket $tickets)
+    public function edit(Ticket $ticket)
     {
-        //
+        return view('tickets.edit', compact('ticket'));
     }
 
     /**
@@ -59,7 +81,16 @@ class TicketsController extends Controller
      */
     public function update(Request $request, Ticket $tickets)
     {
-        //
+        $request->validate([
+            'type' => 'required',
+            'date' => 'required',
+            'location' => 'required',
+        ]);
+
+        $tickets = Ticket::find($tickets->id);
+        $tickets->update($request->all());
+
+        return redirect()->route('tickets.show', $tickets);
     }
 
     /**
@@ -67,6 +98,8 @@ class TicketsController extends Controller
      */
     public function destroy(Ticket $tickets)
     {
-        //
+        $tickets->delete();
+
+        return redirect()->route('tickets.index');
     }
 }
