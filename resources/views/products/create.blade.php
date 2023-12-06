@@ -17,16 +17,25 @@
                                 <textarea class="form-control" id="description" name="description" rows="3"> {{ old('description') }}</textarea>
                             </div>
                             <div class="mb-3">
-                                <label for="price" class="form-label">Price</label>
-                                <input type="number" class="form-control" id="price" name="price" placeholder="Product Price" value=" {{ old('price') }}">
-                            </div>
-                            <div class="mb-3">
                                 <label for="material" class="form-label">material</label>
                                 <input type="text" class="form-control" id="material" name="material" placeholder="material" value="{{ old('material') }}">
                             </div>
                             <div class="mb-3">
+                                <label for="price" class="form-label">Price</label>
+                                <input type="number" class="form-control" id="price" name="price" placeholder="Product Price" value=" {{ old('price') }}">
+                            </div>
+                            <div class="mb-3">
                                 <label for="image" class="form-label">Image</label>
-                                <input type="file" class="form-control" id="image" name="image">
+                                <input type="text" class="form-control" id="image" name="image" placeholder="image url">
+                            </div>
+                            <div class="mb-3">
+                                <label for="category" class="form-label">Category</label>
+                                <select class="form-control" id="category" name="category">
+                                    @foreach($categories as $category)
+                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                    @endforeach
+
+                                </select>
                             </div>
                             <button type="submit" class="btn btn-primary">Create</button>
                         </div>

@@ -44,19 +44,19 @@ class ProductsController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'description' => 'nullable',
+            'description' => 'required',
+            'material' => 'required',
             'price' => 'required',
-            'material' => 'nullable',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'required',
             'category_id' => 'required'
         ]);
 
         $product = new Product();
         $product->name = $request->input('name');
-        $product->description = $request->input('description', '');
-        $product->material = $request->input('material', '');
+        $product->description = $request->input('description');
+        $product->material = $request->input('material');
         $product->price = $request->input('price');
-        $product->image = $request->input('image', '');
+        $product->image = $request->input('image');
         $product->category_id = $request->input('category_id');
         $product->save();
 
