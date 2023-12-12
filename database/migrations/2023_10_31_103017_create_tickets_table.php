@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('type');
             $table->date('date');
-            $table->string('location');
+            $table->string('description');
+            $table->string('price');
             $table->timestamps();
         });
     }

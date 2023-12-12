@@ -12,11 +12,12 @@ class Ticket extends Model
 protected $fillable = [
     'type',
     'date',
-    'location',
+    'description',
+    'price',
     ];
 
     public function users()
     {
-        return $this->belongsToMany(User::class);
+        return $this->belongsToMany(User::class, 'user_tickets');
     }
 }

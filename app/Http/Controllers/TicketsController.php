@@ -84,7 +84,8 @@ class TicketsController extends Controller
         $request->validate([
             'type' => 'required',
             'date' => 'required',
-            'location' => 'required',
+            'description' => 'required',
+            'price' => 'required',
         ]);
 
         $tickets = Ticket::find($tickets->id);
