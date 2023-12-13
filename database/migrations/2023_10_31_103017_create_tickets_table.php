@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('tickets', function (Blueprint $table) {
             $table->id();
             $table->string('type');
-            $table->date('date');
+            $table->string('date');
             $table->string('description');
             $table->string('price');
             $table->timestamps();

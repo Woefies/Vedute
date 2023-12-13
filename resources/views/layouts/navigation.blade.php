@@ -22,6 +22,17 @@
                         <x-nav-link :href="route('vedutes.index')" :active="request()->routeIs('artists')">
                             {{ __('Vedutes') }}
                         </x-nav-link>
+                        <x-nav-link :href="route('categories.index')" :active="request()->routeIs('categories')">
+                            {{ __('Categorieën') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('products.index')" :active="request()->routeIs('products')">
+                            {{ __('Merch shop') }}
+                        </x-nav-link>
+
+                        <x-nav-link :href="route('tickets.index')" :active="request()->routeIs('tickets')">
+                            {{ __('Tickets') }}
+                        </x-nav-link>
+
                     @endif
 
                 </div>

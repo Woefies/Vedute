@@ -44,17 +44,19 @@ class TicketsController extends Controller
         $request->validate([
             'type' => 'required',
             'date' => 'required',
-            'location' => 'required',
+            'description' => 'required',
+            'price' => 'required',
         ]);
 
         $ticket = Ticket::create([
             'type' => $request->type,
             'date' => $request->date,
-            'location' => $request->location,
+            'description' => $request->description,
+            'price' => $request->price,
         ]);
 
         // attach ticket to user
-        auth()->user()->tickets()->attach($ticket->id);
+        $ticket->users()->attach($request->input('users'));
 
         // redirect to tickets index
         return redirect()->route('tickets.index');
@@ -90,6 +92,8 @@ class TicketsController extends Controller
 
         $tickets = Ticket::find($tickets->id);
         $tickets->update($request->all());
+
+        $tickets->users()->sync($request->input('users'));
 
         return redirect()->route('tickets.show', $tickets);
     }
