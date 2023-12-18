@@ -6,9 +6,11 @@
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <!-- create new workout button -->
+                    <x-primary-button class="ml-4">
                     <a href="{{ route('artists.create') }}"
-                       class="btn btn-primary inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-full hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-black-300 dark:bg-french-grey dark:hover:bg-cool-grey dark:focus:ring-black-800">Create
+                       class=>Create
                         Artist</a>
+                        </x-primary-button>
                 </div>
             </div>
         </div>
@@ -18,9 +20,9 @@
             <div class="row justify-content-center">
                 <div class="row-md-8">
                     @foreach($artists as $artist)
-                        <div class="row-auto">
+                        <div class="row-auto flex flex-wrap p-2 -mx-1 lg:-mx-4">
                             <div
-                                class="m-2 max-w-sm bg-white border border-gray-200 shadow dark:bg-off-white dark:border-gray-700">
+                                class="m-2 w-[200px] bg-white border border-gray-200 shadow dark:bg-off-white dark:border-gray-700">
                                 <a href="#">
                                     <img class="align-middle" src="{{ $artist->image }}" alt="Placeholder"/>
                                 </a>

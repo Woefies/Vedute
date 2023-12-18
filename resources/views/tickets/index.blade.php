@@ -1,15 +1,20 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    <x-guest-layout>
+        <div class="container">
             <div class="">
                 <h1>Tickets</h1>
                 <p>Locatie: nog onbekend</p>
                 <p>prijs: €10</p>
                 <p>datum: 10-10-2020</p>
-                <p>details: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet autem exercitationem harum praesentium reprehenderit sequi similique tempora voluptatibus. Accusamus animi dignissimos distinctio itaque mollitia nihil qui repellendus tenetur vero voluptates.</p>
-                <a href="{{ route('tickets.create') }}" class="btn btn-primary">buy Ticket</a>
-
+                <p>details: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet autem exercitationem harum
+                    praesentium reprehenderit sequi similique tempora voluptatibus. Accusamus animi dignissimos
+                    distinctio
+                    itaque mollitia nihil qui repellendus tenetur vero voluptates.</p>
+                <x-primary-button class="ml-4">
+                    <a href="{{ route('tickets.create') }}" class="btn btn-primary">buy Ticket</a>
+                </x-primary-button>
                 @foreach($tickets as $ticket)
                     <div class="card">
                         <div class="card-header">
@@ -25,9 +30,6 @@
                 @endforeach
 
             </div>
-    </div>
-
-
-
-
+        </div>
+    </x-guest-layout>
 @endsection

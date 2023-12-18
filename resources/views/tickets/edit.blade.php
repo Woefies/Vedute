@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-
+    <x-guest-layout>
     <form action="{{ route("tickets.update", ['ticket' => $ticket]) }}" method="POST">
         @csrf
         @method('PUT')
@@ -23,5 +23,5 @@
         </div>
         <button type="submit" class="btn btn-primary">Update</button>
     </form>
-
+        </x-guest-layout>
 @endsection
