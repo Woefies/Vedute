@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+<x-guest-layout>
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
@@ -54,5 +54,5 @@
             </div>
         </div>
     </div>
-
+        </x-guest-layout>
 @endsection

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-
+    <x-guest-layout>
     <form action="{{ route('vedutes.update', $vedute->id) }}" method="POST">
         @csrf
         @method('PUT')
@@ -30,4 +30,5 @@
             <button type="submit" class="btn btn-primary">update</button>
         </div>
     </form>
+        </x-guest-layout>
 @endsection

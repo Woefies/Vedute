@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-
+    <x-guest-layout>
     <form action="{{ route("tickets.store") }}" method="POST">
         @csrf
         <div class="mb-3">
@@ -22,5 +22,5 @@
         </div>
         <button type="submit" class="btn btn-primary">Create</button>
     </form>
-
+        </x-guest-layout>
 @endsection

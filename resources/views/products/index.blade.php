@@ -1,13 +1,15 @@
 @extends('layouts.app')
-
+<x-guest-layout>
 @section('content')
     <!-- create new products button -->
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
+                <x-primary-button class="ml-4">
                 <a href="{{ route('products.create') }}"
-                   class="btn btn-primary inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-full hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-black-300">Create
+                   class="">Create
                     Product</a>
+                    </x-primary-button>
             </div>
         </div>
     </div>
@@ -68,4 +70,5 @@
             </div>
         </div>
     </div>
+        </x-guest-layout>
 @endsection
