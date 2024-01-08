@@ -26,12 +26,12 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="price" class="form-label">Price</label>
-                                    <input type="number" class="form-control" id="price" name="price"
+                                    <input type="text" class="form-control" id="price" name="price"
                                            placeholder="Product Price" value=" {{ old('price') }}">
                                 </div>
                                 <div class="mb-3">
                                     <label for="image" class="form-label">Image</label>
-                                    <input type="text" class="form-control" id="image" name="image"
+                                    <input type="text" class="form-control" id="image" name="image" value="{{ old('image') }}"
                                            placeholder="image url">
                                 </div>
                                 <div class="mb-3">
