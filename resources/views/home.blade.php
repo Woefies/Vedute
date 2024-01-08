@@ -65,6 +65,9 @@
             </span>
                 </button>
             </div>
+            <h1>
+                Wil jij je eigen Vedute hebben? Ga dan nu naar <a href="route('products.index')" class="text-blue-600">onze webshop</a> en koop je eigen vedute shirt of mok!
+            </h1>
         </div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.0.0/flowbite.min.js"></script>
         </div>
