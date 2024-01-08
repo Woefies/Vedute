@@ -48,15 +48,15 @@ class TicketsController extends Controller
             'price' => 'required',
         ]);
 
-        $ticket = Ticket::create([
-            'type' => $request->type,
-            'date' => $request->date,
-            'description' => $request->description,
-            'price' => $request->price,
-        ]);
+        $ticket = new Ticket();
+        $ticket->type = $request->input('type');
+        $ticket->date = $request->input('date');
+        $ticket->description = $request->input('description');
+        $ticket->price = $request->input('price');
+        $ticket->save();
 
         // attach ticket to user
-        $ticket->users()->attach($request->input('users'));
+        $ticket->users()->attach(auth()->user()->id);
 
         // redirect to tickets index
         return redirect()->route('tickets.index');

@@ -15,21 +15,24 @@
                 <x-primary-button class="ml-4">
                     <a href="{{ route('tickets.create') }}" class="btn btn-primary">buy Ticket</a>
                 </x-primary-button>
-                @foreach($tickets as $ticket)
-                    <div class="card">
-                        <div class="card-header">
-                            <h2>{{ $ticket->type}}</h2>
-                        </div>
-                        <div class="card-body">
-                            <p>Datum: {{ $ticket->date }}</p>
-                            <p>details {{ $ticket->description }}</p>
-                            <p>Prijs: €{{ $ticket->price }}</p>
-                            <a href="{{ route('tickets.show', $ticket->id) }}" class="btn btn-primary">view Ticket</a>
-                        </div>
-                    </div>
-                @endforeach
-
             </div>
         </div>
+        <div class="container">
+            <h1>jouw tickets</h1>
+            @foreach($tickets as $ticket)
+                <div class="card">
+                    <div class="card-header">
+                        <h2>{{ $ticket->type}}</h2>
+                    </div>
+                    <div class="card-body">
+                        <p>Datum: {{ $ticket->date }}</p>
+                        <p>details {{ $ticket->description }}</p>
+                        <p>Prijs: €{{ $ticket->price }}</p>
+                        <a href="{{ route('tickets.show', $ticket->id) }}" class="btn btn-primary">view Ticket</a>
+                    </div>
+                </div>
+            @endforeach
+        </div>
     </x-guest-layout>
+
 @endsection

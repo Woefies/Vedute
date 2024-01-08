@@ -12,7 +12,7 @@
             <p>{{ $ticket->price }}</p>
         </div>
         @auth
-            @if(Auth::user()->id === $ticket->user_id || Auth::user()-> is_admin == 1 )
+            @if(Auth::user()-> is_admin == 1 )
                 <!-- edit button -->
                 <a href="{{ route('tickets.edit', $ticket->id) }}" class="btn btn-primary">Edit</a>
 
