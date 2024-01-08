@@ -20,7 +20,7 @@
             <label for="price" class="form-label">€</label>
             <input type="number" class="form-control" id="price" name="price" placeholder="Ticket Price" value="10" readonly>
         </div>
-        <button type="submit" class="btn btn-primary">Create</button>
+        <button type="submit" class="btn btn-primary">Koop je ticket</button>
     </form>
         </x-guest-layout>
 @endsection

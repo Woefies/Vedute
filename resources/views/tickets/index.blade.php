@@ -13,7 +13,7 @@
                     distinctio
                     itaque mollitia nihil qui repellendus tenetur vero voluptates.</p>
                 <x-primary-button class="ml-4">
-                    <a href="{{ route('tickets.create') }}" class="btn btn-primary">buy Ticket</a>
+                    <a href="{{ route('tickets.create') }}" class="btn btn-primary">Koop Ticket</a>
                 </x-primary-button>
             </div>
         </div>
@@ -28,7 +28,7 @@
                         <p>Datum: {{ $ticket->date }}</p>
                         <p>details {{ $ticket->description }}</p>
                         <p>Prijs: €{{ $ticket->price }}</p>
-                        <a href="{{ route('tickets.show', $ticket->id) }}" class="btn btn-primary">view Ticket</a>
+                        <a href="{{ route('tickets.show', $ticket->id) }}" class="btn btn-primary">Bekijk Ticket</a>
                     </div>
                 </div>
             @endforeach
