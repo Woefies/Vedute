@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -14,6 +15,11 @@ class AdminSeeder extends Seeder
      */
     public function run(): void
     {
+        if (User::where('is_admin', 1)->exists()) {
+            $this->command->info('Admin users already seeded. Skipping...');
+            return;
+        }
+
         DB::table('users')->insert([
             'name' => 'Admin',
             'email' => 'admin@example.com',
