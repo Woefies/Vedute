@@ -13,18 +13,17 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex dark:text-black">
                     @if(Auth::user())
-                        <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                            {{ __('Dashboard') }}
-                        </x-nav-link>
                         <x-nav-link :href="route('artists.index')" :active="request()->routeIs('artists')">
                             {{ __('Artists') }}
                         </x-nav-link>
                         <x-nav-link :href="route('vedutes.index')" :active="request()->routeIs('artists')">
                             {{ __('Vedutes') }}
                         </x-nav-link>
-                        <x-nav-link :href="route('categories.index')" :active="request()->routeIs('categories')">
-                            {{ __('Categorieën') }}
-                        </x-nav-link>
+                        @if(Auth::user()-> is_admin == 1)
+                            <x-nav-link :href="route('categories.index')" :active="request()->routeIs('categories')">
+                                {{ __('Categorieën') }}
+                            </x-nav-link>
+                        @endif
                         <x-nav-link :href="route('products.index')" :active="request()->routeIs('products')">
                             {{ __('Merch shop') }}
                         </x-nav-link>
@@ -56,10 +55,6 @@
                                 </x-slot>
 
                                 <x-slot name="content">
-                                    <x-dropdown-link :href="route('profile.edit')">
-                                        {{ __('Profile') }}
-                                    </x-dropdown-link>
-
                                     <!-- Authentication -->
                                     <form method="POST" action="{{ route('logout') }}">
                                         @csrf

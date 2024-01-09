@@ -2,17 +2,19 @@
 
 @section('content')
     <x-guest-layout>
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-8">
-                    <x-primary-button class="ml-4">
-                        <a href="{{ route('vedutes.create') }}"
-                           class=>Create
-                            Vedute</a>
-                    </x-primary-button>
+        @if(Auth::user()-> is_admin == 1 )
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <x-primary-button class="ml-4">
+                            <a href="{{ route('vedutes.create') }}"
+                               class=>Create
+                                Vedute</a>
+                        </x-primary-button>
+                    </div>
                 </div>
             </div>
-        </div>
+        @endif
 
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
             @foreach($vedutes as $vedute)

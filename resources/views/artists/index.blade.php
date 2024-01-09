@@ -2,18 +2,20 @@
 
 @section('content')
     <x-guest-layout>
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-8">
-                    <!-- create new workout button -->
-                    <x-primary-button class="ml-4">
-                        <a href="{{ route('artists.create') }}"
-                           class=>Create
-                            Artist</a>
-                    </x-primary-button>
+        @if(Auth::user()-> is_admin == 1)
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <!-- create new workout button -->
+                        <x-primary-button class="ml-4">
+                            <a href="{{ route('artists.create') }}"
+                               class=>Create
+                                Artist</a>
+                        </x-primary-button>
+                    </div>
                 </div>
             </div>
-        </div>
+        @endif
         <!-- show all workouts -->
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
             @foreach($artists as $artist)

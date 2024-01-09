@@ -17,7 +17,7 @@
                 </x-primary-button>
             </div>
         </div>
-        <h1 class="my-2 inline-flex items-center px-3 py-2 text-xl font-medium text-center text-black bg-blue-700 focus:ring-black-300 dark:bg-french-grey dark:focus:ring-black-800">Jouw tickets</h1>
+        <h1 class="my-2 inline-flex items-center px-3 py-2 text-xl font-medium text-center text-black bg-blue-700 focus:ring-black-300 dark:bg-french-grey dark:focus:ring-black-800">Jouw tickets:</h1>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
             <br>
             @foreach($tickets as $ticket)
