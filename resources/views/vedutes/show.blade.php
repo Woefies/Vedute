@@ -8,7 +8,7 @@
                 <h1>{{ $vedute->name }}</h1>
                 <p> Het verhaal | {{ $vedute->description }}</p>
                 <p> Gemaakt op | {{ $vedute->date }}</p>
-                <p> Maker | {{ $artist->name }}</p>
+                <p> Maker | {{ $vedute->artist->name }}</p>
                 <img src="{{ $vedute->image }}" alt="{{ $vedute->name }}">
             </div>
             @auth

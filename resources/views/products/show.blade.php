@@ -13,19 +13,10 @@
                         <a href="#">
                             <h5 class="mb-2 text-2xl font-bold tracking-tight text-black-100 dark:text-black">{{ $product->name }}</h5>
                         </a>
-                        <p class="mb-3 font-normal text-gray-700 dark:text-black">{{ $product->description }}</p>
-                        <p class="mb-3 font-normal text-gray-700 dark:text-black">{{ $product->price }}</p>
-                        <p class="mb-3 font-normal text-gray-700 dark:text-black">{{ $product->material }}</p>
-                        <a href="{{ route('products.show', $product->id)
-                            }}"
-                            class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-full hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-black-300 dark:bg-french-grey dark:hover:bg-cool-grey dark:focus:ring-black-800">
-                                Read more
-                                <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true"
-                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-                                </svg>
-                        </a>
+                        <p class="mb-3 font-normal text-gray-700 dark:text-black">{{ $product->category->name }}</p>
+                        <p class="mb-3 font-normal text-gray-700 dark:text-black"> Wat is het | {{ $product->description }}</p>
+                        <p class="mb-3 font-normal text-gray-700 dark:text-black">€{{ $product->price }}</p>
+                        <p class="mb-3 font-normal text-gray-700 dark:text-black">materiaal | {{ $product->material }}</p>
                         @auth
                             @if(Auth::user()->id === $product->user_id || Auth::user()-> is_admin == 1 )
                                 <a href="{{ route('products.edit', $product->id) }}"
