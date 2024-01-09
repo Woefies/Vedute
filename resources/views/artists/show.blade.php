@@ -2,10 +2,10 @@
 
 @section('content')
     <x-guest-layout>
-    <h1 class="mb-2 text-2xl font-bold tracking-tight text-black-100 dark:text-black">Artist | {{ $artist->name }}</h1>
-    <p>{{ $artist->about }}</p>
+    <h1 class="mb-2 text-2xl font-bold tracking-tight text-black-100 dark:text-black">Artiest | {{ $artist->name }}</h1>
+    <p>Wie is het | {{ $artist->about }}</p>
         <br>
-    <p>{{ $artist->country }}</p>
+    <p>Lannd van herkomst | {{ $artist->country }}</p>
 
     <img src="{{ $artist->image }}" alt="{{ $artist->name }}" class="w-1/4">
     <a href="{{ route('artists.index') }}" class="btn btn-primary items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-full hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-black-300 dark:bg-french-grey dark:hover:bg-cool-grey dark:focus:ring-black-800">Back</a>
