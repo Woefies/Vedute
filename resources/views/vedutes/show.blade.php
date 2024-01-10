@@ -3,13 +3,15 @@
 @section('content')
 <x-guest-layout>
     <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <h1>{{ $vedute->name }}</h1>
+        <div class="row object-center">
+            <div class="col-12 align-middle justify-center object-center max-w-2xl">
+                <h1 class="text-3xl">{{ $vedute->name }}</h1>
+                <br>
                 <p> Het verhaal | {{ $vedute->description }}</p>
+                <br>
                 <p> Gemaakt op | {{ $vedute->date }}</p>
                 <p> Maker | <a href="{{ route('artists.show', ['id' => $vedute->artist->id]) }}" class="underline">{{ $vedute->artist->name }}</a></p>
-                <img src="{{ $vedute->image }}" alt="{{ $vedute->name }}">
+                <img class="mx-auto"src="{{ $vedute->image }}" alt="{{ $vedute->name }}">
             </div>
             @auth
                 @if(Auth::user()->id === $vedute->user_id || Auth::user()-> is_admin == 1 )
