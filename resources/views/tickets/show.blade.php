@@ -5,11 +5,13 @@
 <x-guest-layout>
 <div class="container">
     <div class="row">
-        <div class="col-12">
-            <h1>{{ $ticket->type }}</h1>
+        <div class="col-12 align-middle justify-center max-w-3xl">
+            <h1 class="text-2xl">{{ $ticket->type }}</h1>
+            <br>
             <p>{{ $ticket->date }}</p>
             <p>{{ $ticket->description }}</p>
-            <p>{{ $ticket->price }}</p>
+            <br>
+            <p>Ticket prijs: €{{ $ticket->price }}</p>
         </div>
         @auth
             @if(Auth::user()-> is_admin == 1 )

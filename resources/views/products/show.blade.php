@@ -7,7 +7,7 @@
                 class="m-2 max-w-sm bg-white border border-gray-200 shadow dark:bg-off-white dark:border-gray-700 items-center text-center">
                 <div class="p-5">
                     <a href="#">
-                        <img class="" src="{{ $product->image }}" alt="Placeholder"/>
+                        <img class="mx-auto"     src="{{ $product->image }}" alt="Placeholder"/>
                     </a>
                     <div class="p-5">
                         <a href="#">
