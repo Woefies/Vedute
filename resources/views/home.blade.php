@@ -3,6 +3,7 @@
 @section('content')
     <x-guest-layout>
         <h1 class="text-center text-6xl mb-10">Oktober Showcase</h1>
+        <p>Haal hier je <a href="{{ route('tickets.index') }}" class="font-bold underline text-1xl">tickets</a></p>
         <div id="custom-controls-gallery" class="relative w-full sm:max-w-full" data-carousel="slide">
             <!-- Carousel wrapper -->
             <div class="relative h-full overflow-hidden rounded-lg md:h-96">

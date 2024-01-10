@@ -28,7 +28,7 @@
                         </a>
                         <div class="p-5">
                             <a href="#">
-                                <h5 class="mb-2 text-2xl font-bold tracking-tight text-black-100 dark:text-black">{{ $product->name }}</h5>
+                                <h5 class="mb-2 text-2xl font-bold tracking-tight text-black-100 dark:text-black">{{ $product->name }} - €{{ $product->price }}</h5>
                             </a>
                             <p class="mb-3 font-normal text-gray-700 dark:text-black">{{ $product->description }}</p>
                             <a href="{{ route('products.show', $product->id)
