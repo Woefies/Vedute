@@ -20,7 +20,7 @@ class TicketsController extends Controller
     public function index()
     {
         // get tickets from user
-        $tickets = auth()->user()->tickets;
+        $tickets = auth()->check() ? auth()->user()->tickets : null;
 
         // return view with tickets
         return view('tickets.index', compact('tickets'));
